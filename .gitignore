@@ -1,0 +1,64 @@
+﻿# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+**/.venv/
+**/venv/
+**/ENV/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+
+# Node and frontend dependencies/builds
+**/node_modules/
+**/dist/
+**/build/
+**/coverage/
+
+# Audio, video and personal recordings
+*.wav
+*.flac
+*.mp3
+*.m4a
+*.aac
+*.ogg
+*.opus
+*.mp4
+*.mov
+*.webm
+
+# Model weights and downloaded ML artifacts
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.tflite
+*.pb
+*.model
+*.weights
+
+# Generated archives and temporary outputs
+*.zip
+*.7z
+*.tar
+*.gz
+tmp/
+sonora_sessions/
+.ipynb_checkpoints/
+
+# IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,23 @@
+# SONORA Stage 5 — Phase 1B Minimal CPU-Only Dependency Plan (NOT YET INSTALLED)
+# Target interpreter: Python 3.10.11 (isolated venv: experiments/stage5_clapsep/.venv)
+# Install PyTorch CPU wheels first using:
+#   pip install --index-url https://download.pytorch.org/whl/cpu torch==2.3.1+cpu torchaudio==2.3.1+cpu
+#
+# Notes:
+# - torch < 2.6.0 avoids PyTorch 2.6 weights_only=True breaking laion_clap.load_ckpt()
+# - torch >= 2.1.0 supports torch.load(..., mmap=True) to reduce peak RAM on 8 GB systems
+# - torchvision is intentionally omitted (unused by CLAPSep.py, CLAPSep_decoder.py, and app.py)
+# - numpy < 2.0.0 is strictly required by laion-clap==1.1.7 and torchlibrosa==0.1.0
+# - transformers==4.30.2 uses tokenizers==0.13.3 (prebuilt cp310 win_amd64 wheel available)
+
+numpy==1.26.4
+scipy==1.13.1
+soundfile==0.12.1
+librosa==0.10.2.post1
+torchlibrosa==0.1.0
+einops==0.8.2
+loralib==0.1.2
+tokenizers==0.13.3
+transformers==4.30.2
+laion-clap==1.1.7
+psutil==6.1.1

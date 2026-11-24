@@ -1,0 +1,542 @@
+{
+  "generated_at_utc": "2026-11-24T06:09:53.015548+00:00",
+  "disclaimer": "Synthetic deterministic benchmark results verify DSP signal behavior and guardrails on controlled mixtures; they do NOT prove real-world musical listening quality.",
+  "engine": "precision_musical_dsp_stage4",
+  "scenarios": [
+    {
+      "id": "clean_sustained_tone",
+      "title": "Clean sustained musical tone (A3 = 220 Hz)",
+      "processing_mode": "bypassed_clean_or_silent",
+      "sample_rate": 48000,
+      "channels": 1,
+      "is_clean_reference": true,
+      "metrics": {
+        "input_snr_db": 120.0,
+        "output_snr_db": 120.0,
+        "snr_improvement_db": null,
+        "input_si_sdr_db": 120.0,
+        "output_si_sdr_db": 120.0,
+        "si_sdr_improvement_db": null,
+        "input_channel_snr_db": [
+          120.0
+        ],
+        "output_channel_snr_db": [
+          120.0
+        ],
+        "input_channel_si_sdr_db": [
+          120.0
+        ],
+        "output_channel_si_sdr_db": [
+          120.0
+        ],
+        "input_log_spectral_distance_db": 0.0,
+        "log_spectral_distance_db": 0.0,
+        "transient_preservation": 1.0,
+        "orig_peak_dbfs": -12.04,
+        "proc_peak_dbfs": -12.04,
+        "orig_true_peak_dbtp": -12.04,
+        "proc_true_peak_dbtp": -12.04,
+        "rms_change_db": 0.0,
+        "lufs_change_db": 0.0,
+        "processing_time_ms": 52.88
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": false,
+        "hpf_cutoff_hz": null,
+        "hum_notches_applied": false,
+        "hum_notched_frequencies_hz": [],
+        "broadband_applied_channels": [],
+        "broadband_skipped_clean_channels": [
+          1
+        ],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Hum reduction enabled, but no steady narrowband 50/60 Hz hum met evidence thresholds; skipped.",
+          "Channel 1: Auto-bypassed broadband suppression (estimated floor -97.44 dBFS is below clean threshold -72 dBFS).",
+          "Recording appeared already clean with no confirmed noise requiring suppression; output left effectively unchanged."
+        ]
+      }
+    },
+    {
+      "id": "vibrato_harmonics_clean",
+      "title": "Clean bowed string with vibrato & 8 harmonics",
+      "processing_mode": "bypassed_clean_or_silent",
+      "sample_rate": 48000,
+      "channels": 2,
+      "is_clean_reference": true,
+      "metrics": {
+        "input_snr_db": 120.0,
+        "output_snr_db": 120.0,
+        "snr_improvement_db": null,
+        "input_si_sdr_db": 120.0,
+        "output_si_sdr_db": 120.0,
+        "si_sdr_improvement_db": null,
+        "input_channel_snr_db": [
+          120.0,
+          120.0
+        ],
+        "output_channel_snr_db": [
+          120.0,
+          120.0
+        ],
+        "input_channel_si_sdr_db": [
+          120.0,
+          120.0
+        ],
+        "output_channel_si_sdr_db": [
+          120.0,
+          120.0
+        ],
+        "input_log_spectral_distance_db": 0.0,
+        "log_spectral_distance_db": 0.0,
+        "transient_preservation": 1.0,
+        "orig_peak_dbfs": -10.37,
+        "proc_peak_dbfs": -10.37,
+        "orig_true_peak_dbtp": -10.36,
+        "proc_true_peak_dbtp": -10.36,
+        "rms_change_db": 0.0,
+        "lufs_change_db": 0.0,
+        "processing_time_ms": 162.33
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": false,
+        "hpf_cutoff_hz": null,
+        "hum_notches_applied": false,
+        "hum_notched_frequencies_hz": [],
+        "broadband_applied_channels": [],
+        "broadband_skipped_clean_channels": [
+          1,
+          2
+        ],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Hum reduction enabled, but no steady narrowband 50/60 Hz hum met evidence thresholds; skipped.",
+          "Channel 1: Auto-bypassed broadband suppression (estimated floor -90.98 dBFS is below clean threshold -72 dBFS).",
+          "Channel 2: Auto-bypassed broadband suppression (estimated floor -90.98 dBFS is below clean threshold -72 dBFS).",
+          "Recording appeared already clean with no confirmed noise requiring suppression; output left effectively unchanged."
+        ]
+      }
+    },
+    {
+      "id": "plucked_percussive_transients",
+      "title": "Plucked string sequence with sharp attacks & decay",
+      "processing_mode": "bypassed_clean_or_silent",
+      "sample_rate": 48000,
+      "channels": 1,
+      "is_clean_reference": true,
+      "metrics": {
+        "input_snr_db": 120.0,
+        "output_snr_db": 120.0,
+        "snr_improvement_db": null,
+        "input_si_sdr_db": 120.0,
+        "output_si_sdr_db": 120.0,
+        "si_sdr_improvement_db": null,
+        "input_channel_snr_db": [
+          120.0
+        ],
+        "output_channel_snr_db": [
+          120.0
+        ],
+        "input_channel_si_sdr_db": [
+          120.0
+        ],
+        "output_channel_si_sdr_db": [
+          120.0
+        ],
+        "input_log_spectral_distance_db": 0.0,
+        "log_spectral_distance_db": 0.0,
+        "transient_preservation": 1.0,
+        "orig_peak_dbfs": -8.47,
+        "proc_peak_dbfs": -8.47,
+        "orig_true_peak_dbtp": -6.1,
+        "proc_true_peak_dbtp": -6.1,
+        "rms_change_db": 0.0,
+        "lufs_change_db": 0.0,
+        "processing_time_ms": 85.54
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": false,
+        "hpf_cutoff_hz": null,
+        "hum_notches_applied": false,
+        "hum_notched_frequencies_hz": [],
+        "broadband_applied_channels": [],
+        "broadband_skipped_clean_channels": [
+          1
+        ],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Hum reduction enabled, but no steady narrowband 50/60 Hz hum met evidence thresholds; skipped.",
+          "Channel 1: Auto-bypassed broadband suppression (estimated floor -77.71 dBFS is below clean threshold -72 dBFS).",
+          "Recording appeared already clean with no confirmed noise requiring suppression; output left effectively unchanged."
+        ]
+      }
+    },
+    {
+      "id": "low_freq_bass_notes",
+      "title": "Low-frequency bass notes (E1\u2013B1 near 50/60 Hz)",
+      "processing_mode": "bypassed_clean_or_silent",
+      "sample_rate": 48000,
+      "channels": 1,
+      "is_clean_reference": true,
+      "metrics": {
+        "input_snr_db": 120.0,
+        "output_snr_db": 120.0,
+        "snr_improvement_db": null,
+        "input_si_sdr_db": 120.0,
+        "output_si_sdr_db": 120.0,
+        "si_sdr_improvement_db": null,
+        "input_channel_snr_db": [
+          120.0
+        ],
+        "output_channel_snr_db": [
+          120.0
+        ],
+        "input_channel_si_sdr_db": [
+          120.0
+        ],
+        "output_channel_si_sdr_db": [
+          120.0
+        ],
+        "input_log_spectral_distance_db": 0.0,
+        "log_spectral_distance_db": 0.0,
+        "transient_preservation": 1.0,
+        "orig_peak_dbfs": -8.8,
+        "proc_peak_dbfs": -8.8,
+        "orig_true_peak_dbtp": -8.79,
+        "proc_true_peak_dbtp": -8.79,
+        "rms_change_db": 0.0,
+        "lufs_change_db": 0.0,
+        "processing_time_ms": 82.7
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": false,
+        "hpf_cutoff_hz": null,
+        "hum_notches_applied": false,
+        "hum_notched_frequencies_hz": [],
+        "broadband_applied_channels": [],
+        "broadband_skipped_clean_channels": [
+          1
+        ],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Hum reduction enabled, but no steady narrowband 50/60 Hz hum met evidence thresholds; skipped.",
+          "Channel 1: Auto-bypassed broadband suppression (no sub-band met broadband noise floor & flatness thresholds: 150-1000Hz(-40.7dB, flat=0.00), 1000-4000Hz(-120.0dB, flat=0.68), 4000-12000Hz(-120.0dB, flat=0.00)).",
+          "Recording appeared already clean with no confirmed noise requiring suppression; output left effectively unchanged."
+        ]
+      }
+    },
+    {
+      "id": "music_plus_60hz_hum",
+      "title": "Acoustic phrase + 60 Hz electrical hum & harmonics",
+      "processing_mode": "applied",
+      "sample_rate": 48000,
+      "channels": 2,
+      "is_clean_reference": false,
+      "metrics": {
+        "input_snr_db": 10.06,
+        "output_snr_db": 24.26,
+        "snr_improvement_db": 14.2,
+        "input_si_sdr_db": 10.05,
+        "output_si_sdr_db": 24.25,
+        "si_sdr_improvement_db": 14.2,
+        "input_channel_snr_db": [
+          10.06,
+          10.06
+        ],
+        "output_channel_snr_db": [
+          24.26,
+          24.26
+        ],
+        "input_channel_si_sdr_db": [
+          10.05,
+          10.05
+        ],
+        "output_channel_si_sdr_db": [
+          24.25,
+          24.25
+        ],
+        "input_log_spectral_distance_db": 3.97,
+        "log_spectral_distance_db": 2.592,
+        "transient_preservation": 0.9834,
+        "orig_peak_dbfs": -9.1,
+        "proc_peak_dbfs": -9.99,
+        "orig_true_peak_dbtp": -9.1,
+        "proc_true_peak_dbtp": -9.98,
+        "rms_change_db": -0.45,
+        "lufs_change_db": -0.3,
+        "processing_time_ms": 154.15
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": false,
+        "hpf_cutoff_hz": null,
+        "hum_notches_applied": true,
+        "hum_notched_frequencies_hz": [
+          60.0,
+          120.0,
+          180.0,
+          240.0
+        ],
+        "broadband_applied_channels": [],
+        "broadband_skipped_clean_channels": [
+          1,
+          2
+        ],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Channel 1: applied pitch-safe narrow-Q 60 Hz hum notches at 60.0 Hz, 120.0 Hz, 180.0 Hz, 240.0 Hz.",
+          "Channel 2: applied pitch-safe narrow-Q 60 Hz hum notches at 60.0 Hz, 120.0 Hz, 180.0 Hz, 240.0 Hz.",
+          "Channel 1: Auto-bypassed broadband suppression (no sub-band met broadband noise floor & flatness thresholds: 150-1000Hz(-64.0dB, flat=0.16), 1000-4000Hz(-90.1dB, flat=0.01), 4000-12000Hz(-120.0dB, flat=0.69)).",
+          "Channel 2: Auto-bypassed broadband suppression (no sub-band met broadband noise floor & flatness thresholds: 150-1000Hz(-64.0dB, flat=0.16), 1000-4000Hz(-90.1dB, flat=0.01), 4000-12000Hz(-120.0dB, flat=0.69))."
+        ]
+      }
+    },
+    {
+      "id": "music_plus_broadband_hiss",
+      "title": "Plucked phrase + broadband high-frequency hiss (>4.2 kHz)",
+      "processing_mode": "applied",
+      "sample_rate": 48000,
+      "channels": 1,
+      "is_clean_reference": false,
+      "metrics": {
+        "input_snr_db": 7.84,
+        "output_snr_db": 14.19,
+        "snr_improvement_db": 6.35,
+        "input_si_sdr_db": 7.84,
+        "output_si_sdr_db": 14.06,
+        "si_sdr_improvement_db": 6.22,
+        "input_channel_snr_db": [
+          7.84
+        ],
+        "output_channel_snr_db": [
+          14.19
+        ],
+        "input_channel_si_sdr_db": [
+          7.84
+        ],
+        "output_channel_si_sdr_db": [
+          14.06
+        ],
+        "input_log_spectral_distance_db": 27.875,
+        "log_spectral_distance_db": 19.833,
+        "transient_preservation": 0.9937,
+        "orig_peak_dbfs": -8.44,
+        "proc_peak_dbfs": -9.28,
+        "orig_true_peak_dbtp": -6.04,
+        "proc_true_peak_dbtp": -7.2,
+        "rms_change_db": -0.67,
+        "lufs_change_db": -0.97,
+        "processing_time_ms": 131.99
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": false,
+        "hpf_cutoff_hz": null,
+        "hum_notches_applied": false,
+        "hum_notched_frequencies_hz": [],
+        "broadband_applied_channels": [
+          1
+        ],
+        "broadband_skipped_clean_channels": [],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Hum reduction enabled, but no steady narrowband 50/60 Hz hum met evidence thresholds; skipped.",
+          "Channel 1: Applied Decision-Directed musical Wiener suppression (Broadband noise bed verified in 4000-12000Hz (-39.9 dBFS, flat=0.98). est. floor -35.6 dBFS, max attenuation cap -12.9 dB, harmonic & transient protection active)."
+        ]
+      }
+    },
+    {
+      "id": "music_plus_low_freq_rumble",
+      "title": "Mid-register phrase + low-frequency rumble (22\u201385 Hz)",
+      "processing_mode": "applied",
+      "sample_rate": 48000,
+      "channels": 1,
+      "is_clean_reference": false,
+      "metrics": {
+        "input_snr_db": 7.9,
+        "output_snr_db": 21.5,
+        "snr_improvement_db": 13.6,
+        "input_si_sdr_db": 7.9,
+        "output_si_sdr_db": 21.47,
+        "si_sdr_improvement_db": 13.57,
+        "input_channel_snr_db": [
+          7.9
+        ],
+        "output_channel_snr_db": [
+          21.5
+        ],
+        "input_channel_si_sdr_db": [
+          7.9
+        ],
+        "output_channel_si_sdr_db": [
+          21.47
+        ],
+        "input_log_spectral_distance_db": 4.699,
+        "log_spectral_distance_db": 3.538,
+        "transient_preservation": 0.9194,
+        "orig_peak_dbfs": -8.24,
+        "proc_peak_dbfs": -10.2,
+        "orig_true_peak_dbtp": -8.23,
+        "proc_true_peak_dbtp": -10.19,
+        "rms_change_db": -0.67,
+        "lufs_change_db": -0.28,
+        "processing_time_ms": 64.27
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": true,
+        "hpf_cutoff_hz": 95.0,
+        "hum_notches_applied": false,
+        "hum_notched_frequencies_hz": [],
+        "broadband_applied_channels": [],
+        "broadband_skipped_clean_channels": [
+          1
+        ],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Applied zero-phase high-pass filter at 95.0 Hz.",
+          "Hum reduction enabled, but no steady narrowband 50/60 Hz hum met evidence thresholds; skipped.",
+          "Channel 1: Auto-bypassed broadband suppression (no sub-band met broadband noise floor & flatness thresholds: 150-1000Hz(-62.2dB, flat=0.04), 1000-4000Hz(-100.4dB, flat=0.15), 4000-12000Hz(-118.5dB, flat=0.83))."
+        ]
+      }
+    },
+    {
+      "id": "stereo_single_channel_disturbance",
+      "title": "Stereo instrument with 50 Hz hum in Left channel only",
+      "processing_mode": "applied",
+      "sample_rate": 48000,
+      "channels": 2,
+      "is_clean_reference": false,
+      "metrics": {
+        "input_snr_db": 14.51,
+        "output_snr_db": 28.85,
+        "snr_improvement_db": 14.34,
+        "input_si_sdr_db": 14.51,
+        "output_si_sdr_db": 28.85,
+        "si_sdr_improvement_db": 14.34,
+        "input_channel_snr_db": [
+          11.5,
+          120.0
+        ],
+        "output_channel_snr_db": [
+          25.84,
+          120.0
+        ],
+        "input_channel_si_sdr_db": [
+          11.5,
+          120.0
+        ],
+        "output_channel_si_sdr_db": [
+          25.84,
+          120.0
+        ],
+        "input_log_spectral_distance_db": 2.083,
+        "log_spectral_distance_db": 1.41,
+        "transient_preservation": 0.9914,
+        "orig_peak_dbfs": -9.42,
+        "proc_peak_dbfs": -10.39,
+        "orig_true_peak_dbtp": -9.42,
+        "proc_true_peak_dbtp": -10.39,
+        "rms_change_db": -0.15,
+        "lufs_change_db": -0.07,
+        "processing_time_ms": 146.49
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": false,
+        "hpf_cutoff_hz": null,
+        "hum_notches_applied": true,
+        "hum_notched_frequencies_hz": [
+          50.0,
+          100.0,
+          150.0
+        ],
+        "broadband_applied_channels": [],
+        "broadband_skipped_clean_channels": [
+          1,
+          2
+        ],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Channel 1: applied pitch-safe narrow-Q 50 Hz hum notches at 50.0 Hz, 100.0 Hz, 150.0 Hz.",
+          "Channel 1: Auto-bypassed broadband suppression (no sub-band met broadband noise floor & flatness thresholds: 150-1000Hz(-59.0dB, flat=0.03), 1000-4000Hz(-94.6dB, flat=0.02), 4000-12000Hz(-120.0dB, flat=0.66)).",
+          "Channel 2: Auto-bypassed broadband suppression (estimated floor -76.52 dBFS is below clean threshold -72 dBFS)."
+        ]
+      }
+    },
+    {
+      "id": "near_clean_recording",
+      "title": "Near-clean recording (-80 dBFS quiet ambient bed)",
+      "processing_mode": "bypassed_clean_or_silent",
+      "sample_rate": 48000,
+      "channels": 2,
+      "is_clean_reference": true,
+      "metrics": {
+        "input_snr_db": 60.62,
+        "output_snr_db": 60.62,
+        "snr_improvement_db": null,
+        "input_si_sdr_db": 60.62,
+        "output_si_sdr_db": 60.62,
+        "si_sdr_improvement_db": null,
+        "input_channel_snr_db": [
+          60.63,
+          60.62
+        ],
+        "output_channel_snr_db": [
+          60.63,
+          60.62
+        ],
+        "input_channel_si_sdr_db": [
+          60.63,
+          60.62
+        ],
+        "output_channel_si_sdr_db": [
+          60.63,
+          60.62
+        ],
+        "input_log_spectral_distance_db": 0.169,
+        "log_spectral_distance_db": 0.169,
+        "transient_preservation": 1.0,
+        "orig_peak_dbfs": -10.89,
+        "proc_peak_dbfs": -10.89,
+        "orig_true_peak_dbtp": -10.88,
+        "proc_true_peak_dbtp": -10.88,
+        "rms_change_db": 0.0,
+        "lufs_change_db": 0.0,
+        "processing_time_ms": 132.16
+      },
+      "actions": {
+        "dc_offset_removed": false,
+        "hpf_applied": false,
+        "hpf_cutoff_hz": null,
+        "hum_notches_applied": false,
+        "hum_notched_frequencies_hz": [],
+        "broadband_applied_channels": [],
+        "broadband_skipped_clean_channels": [
+          1,
+          2
+        ],
+        "limiter_engaged": false,
+        "limiter_gain_reduction_db": 0.0,
+        "notes": [
+          "Hum reduction enabled, but no steady narrowband 50/60 Hz hum met evidence thresholds; skipped.",
+          "Channel 1: Auto-bypassed broadband suppression (estimated floor -79.01 dBFS is below clean threshold -72 dBFS).",
+          "Channel 2: Auto-bypassed broadband suppression (estimated floor -79.02 dBFS is below clean threshold -72 dBFS).",
+          "Recording appeared already clean with no confirmed noise requiring suppression; output left effectively unchanged."
+        ]
+      }
+    }
+  ]
+}
