@@ -172,6 +172,7 @@ const MOCK_PROCESS_RESULT: ProcessResponse = {
   frame_count: 115200,
   duration_seconds: 2.4,
   settings_applied: {
+    engine: "precision_musical_dsp",
     strength: 0.45,
     hum_reduction_enabled: true,
     hpf_enabled: false,
