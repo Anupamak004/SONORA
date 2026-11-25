@@ -9,6 +9,7 @@ interface ProcessingControlsPanelProps {
 }
 
 export const DEFAULT_PROCESS_SETTINGS: ProcessRequest = {
+  engine: "precision_musical_dsp",
   strength: 0.45,
   hum_reduction_enabled: true,
   hpf_enabled: false,
@@ -44,6 +45,25 @@ export function ProcessingControlsPanel({
           <p className="mt-0.5 text-[11px] text-studio-subtle">
             Conservative CPU DSP preserving native sample rate, stereo channels, harmonics, and transients.
           </p>
+        </div>
+
+        <div className="flex items-center gap-2 text-xs">
+          <label htmlFor="processing-engine" className="text-studio-muted">Engine</label>
+          <select
+            id="processing-engine"
+            value={settings.engine}
+            disabled={processing}
+            onChange={(e) =>
+              onChange({
+                ...settings,
+                engine: e.target.value as ProcessRequest["engine"],
+              })
+            }
+            className="border border-studio-border bg-studio-bg px-2 py-1.5 text-studio-text"
+          >
+            <option value="precision_musical_dsp">Precision Musical DSP (Available)</option>
+            <option value="audiosep_experimental" disabled>AudioSep AI (Experimental — Not installed)</option>
+          </select>
         </div>
 
         <label className="flex cursor-pointer items-center gap-2 font-mono text-xs text-studio-muted">
