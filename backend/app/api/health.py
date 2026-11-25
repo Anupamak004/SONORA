@@ -8,6 +8,7 @@ from pathlib import Path
 
 from fastapi import APIRouter, Depends
 
+from app.ai.registry import engine_registry
 from app.core.config import Settings, get_settings
 from app.models.schemas import (
     EngineCapability,
@@ -68,7 +69,10 @@ def _check_temp_dir_ready(temp_dir: Path) -> bool:
 
 
 def _engine_capabilities() -> list[EngineCapability]:
-    """Report implemented and planned denoising engines honestly."""
+    """Report active DSP and registry-backed optional engine implementation status."""
+    registered_engine_ids = {
+        descriptor.id for descriptor in engine_registry.descriptors()
+    }
     return [
         EngineCapability(
             id="precision_musical_dsp",
@@ -88,7 +92,7 @@ def _engine_capabilities() -> list[EngineCapability]:
             id="htdemucs_stem_separation",
             name="HTDemucs (Vocal / Speech Stem Separation)",
             category="stem_separation",
-            implemented=False,
+            implemented="htdemucs_stem_separation" in registered_engine_ids,
             available=False,
             optional_dependency=True,
             target_stage="Stage 5 (Optional)",
@@ -102,7 +106,7 @@ def _engine_capabilities() -> list[EngineCapability]:
             id="music_ai_denoise_onnx",
             name="Mel-Band RoFormer / MDX-Net Denoise (ONNX)",
             category="music_ai",
-            implemented=False,
+            implemented="music_ai_denoise_onnx" in registered_engine_ids,
             available=False,
             optional_dependency=True,
             target_stage="Stage 5 (Optional)",
@@ -116,7 +120,7 @@ def _engine_capabilities() -> list[EngineCapability]:
             id="deepfilternet3_experimental",
             name="DeepFilterNet3 (Experimental, Guarded)",
             category="experimental_ai",
-            implemented=False,
+            implemented="deepfilternet3_experimental" in registered_engine_ids,
             available=False,
             optional_dependency=True,
             target_stage="Stage 5 (Experimental)",
