@@ -212,7 +212,11 @@ export type ProcessingMode =
   | "bypassed"
   | "bypassed_clean_or_silent";
 
+export type ProcessingEngine = "precision_musical_dsp" | "audiosep_experimental";
+
 export interface ProcessRequest {
+  engine: ProcessingEngine;
+  target_query?: string | null;
   strength: number;
   hum_reduction_enabled: boolean;
   hpf_enabled: boolean;
