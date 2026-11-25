@@ -283,3 +283,21 @@ def test_process_endpoint_validates_session_and_parameter_bounds(client: TestCli
         resp = client.post(f"/api/v1/sessions/{session_id}/process", json=bad_payload)
         assert resp.status_code == 422
         assert resp.json()["error"]["code"] == "REQUEST_VALIDATION_ERROR"
+
+
+def test_explicit_audiosep_selection_returns_unavailable_without_dsp_fallback(
+    client: TestClient,
+) -> None:
+    session_id, _ = _upload_noisy_stereo_wav(client)
+    response = client.post(
+        f"/api/v1/sessions/{session_id}/process",
+        json={"engine": "audiosep_experimental"},
+    )
+
+    assert response.status_code == 503
+    body = response.json()["error"]
+    assert body["code"] == "AI_ENGINE_UNAVAILABLE"
+    assert body["details"]["requested_engine"] == "audiosep_experimental"
+    assert body["details"]["fallback_applied"] is False
+    # An unavailable AI request must not create a misleading DSP result.
+    assert client.get(f"/api/v1/sessions/{session_id}/process").status_code == 404
