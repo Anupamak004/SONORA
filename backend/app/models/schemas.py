@@ -254,11 +254,14 @@ ProcessingMode = Literal[
     "bypassed",
     "bypassed_clean_or_silent",
 ]
+ProcessingEngine = Literal["precision_musical_dsp", "audiosep_experimental"]
 
 
 class ProcessRequest(BaseModel):
-    """Validated conservative controls for Stage 4 Precision Musical DSP."""
+    """Validated controls for the selected processing engine."""
 
+    engine: ProcessingEngine = "precision_musical_dsp"
+    target_query: str | None = Field(default=None, min_length=1, max_length=120)
     strength: float = Field(default=0.45, ge=0.0, le=0.85)
     hum_reduction_enabled: bool = Field(default=True)
     hpf_enabled: bool = Field(default=False)
@@ -319,3 +322,4 @@ class ProcessResponse(BaseModel):
     processed_audio_url: str
     residual_audio_url: str
     residual_disclosure: str
+}
