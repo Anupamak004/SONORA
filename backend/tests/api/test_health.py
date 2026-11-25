@@ -6,6 +6,9 @@ from pathlib import Path
 
 from fastapi.testclient import TestClient
 
+from app.ai.base import AIEngine, EngineDescriptor
+from app.ai.registry import engine_registry
+from app.api.health import _engine_capabilities
 from app.core.config import Settings
 from app.main import create_app
 
@@ -51,3 +54,32 @@ def test_health_gracefully_handles_missing_ffmpeg(tmp_path: Path, monkeypatch) -
         assert body["ffmpeg"]["available"] is False
         assert body["ffprobe"]["available"] is False
         assert body["limits"]["supported_upload_formats"] == ["wav", "flac"]
+
+
+
+def test_health_engine_status_uses_registry_without_loading_models(monkeypatch) -> None:
+    class RegisteredTestEngine(AIEngine):
+        descriptor = EngineDescriptor(
+            id="htdemucs_stem_separation",
+            name="Test HTDemucs adapter",
+            category="stem_separation",
+            description="Test-only registered adapter.",
+        )
+
+        def separate(self, audio, sample_rate: int, query: str):
+            return audio
+
+    # Isolate the global registry for this test and prove listing does not load a model.
+    test_registry = type(engine_registry)()
+    test_registry.register(
+        RegisteredTestEngine.descriptor,
+        lambda: RegisteredTestEngine(),
+    )
+    monkeypatch.setattr("app.api.health.engine_registry", test_registry)
+
+    capabilities = {item.id: item for item in _engine_capabilities()}
+    assert capabilities["htdemucs_stem_separation"].implemented is True
+    # A registered adapter is not proof that weights/dependencies are installed.
+    assert capabilities["htdemucs_stem_separation"].available is False
+    assert capabilities["music_ai_denoise_onnx"].implemented is False
+    assert capabilities["deepfilternet3_experimental"].implemented is False
