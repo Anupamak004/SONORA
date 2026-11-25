@@ -15,7 +15,7 @@ from fastapi.responses import FileResponse
 from app.api.sessions import get_session_store
 from app.audio.loudness import AudioLevelMetrics
 from app.audio.waveform import compute_waveform_peaks
-from app.core.exceptions import AudioValidationError, ResourceNotFoundError
+from app.core.exceptions import AudioValidationError, ResourceNotFoundError, SonoraError
 from app.dsp.pipeline import RESIDUAL_DISCLOSURE_TEXT, process_audio_pipeline
 from app.models.schemas import LevelSummary, ProcessRequest, ProcessResponse
 from app.services.session_store import (
@@ -153,6 +153,24 @@ async def process_session_audio(
     decoded_path = store.get_decoded_audio_file(session_id)
     session_dir = store.resolve_session_dir(session_id)
     effective_request = request or ProcessRequest()
+
+    # Never silently substitute DSP output for an explicitly selected AI engine.
+    # AudioSep remains unavailable until a verified local adapter and model runtime
+    # are installed and registered.
+    if effective_request.engine != "precision_musical_dsp":
+        raise SonoraError(
+            code="AI_ENGINE_UNAVAILABLE",
+            message=(
+                "AudioSep is not installed or enabled in this SONORA build. "
+                "Choose Precision Musical DSP or install a verified AI engine."
+            ),
+            status_code=503,
+            details={
+                "requested_engine": effective_request.engine,
+                "fallback_applied": False,
+            },
+        )
+
     params_hash = _hash_request(effective_request)
 
     # Return cached result immediately when identical settings were already processed
